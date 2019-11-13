@@ -1,10 +1,10 @@
 {
-  "name": "react-landbot",
+  "name": "@frubana/react-landbot",
   "version": "0.0.1",
   "description": "",
   "private": false,
-  "author": "Frubana - EslavaDev",
-  "license": "MIT",
+  "author": "@frubana",
+  "license": "",
   "repository": "https://github.com/Frubana/react-landbot.git",
   "main": "dist/index.js",
   "module": "dist/index.es.js",
@@ -60,5 +60,11 @@
   },
   "files": [
     "dist"
+  ],
+  "keywords": [
+    "reactjs",
+    "typescript",
+    "landbot",
+    "landbot-livechat"
   ]
 }
