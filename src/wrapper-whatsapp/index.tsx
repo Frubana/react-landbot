@@ -2,7 +2,6 @@ import React, { useState, useCallback, Fragment } from "react";
 import { ButtonActionStyled } from "../action-button-landbot/styles";
 
 export type Props = {
-  boolDefault: boolean;
   image: string;
   whatsapp: string;
   size?: string;
@@ -16,7 +15,7 @@ export type Props = {
 };
 
 export const WrapperWhatsApp = (props: Props) => {
-  const [buttonBool, setButtonBool] = useState(props.boolDefault);
+  const [buttonBool, setButtonBool] = useState(false);
 
   const handleCallBack = useCallback(() => {
     setButtonBool(!buttonBool);

@@ -3,7 +3,6 @@ import { WrapperIframeStyled, WrapperChildStyled } from "./styles";
 import { ButtonActionStyled } from "../action-button-landbot/styles";
 
 export type Props = {
-  boolDefault: boolean;
   image: string;
   iframe: string;
   size?: string;
@@ -17,7 +16,7 @@ export type Props = {
 };
 
 export const WrapperIframe = (props: Props) => {
-  const [buttonBool, setButtonBool] = useState(props.boolDefault);
+  const [buttonBool, setButtonBool] = useState(false);
   const [loading, setLoading] = useState(true);
 
   const handleCallBack = useCallback(() => {

@@ -2,7 +2,6 @@ import React, { useState, useCallback, Fragment } from "react";
 import { ButtonActionStyled } from "./styles";
 
 export type Props = {
-  boolDefault: boolean;
   image: string;
   text?: string | JSX.Element;
   size?: string;
@@ -14,7 +13,7 @@ export type Props = {
 };
 
 export const ActionButtonLandbot = (props: Props) => {
-  const [buttonBool, setButtonBool] = useState(props.boolDefault);
+  const [buttonBool, setButtonBool] = useState(false);
 
   const handleCallBack = useCallback(() => {
     setButtonBool(!buttonBool);

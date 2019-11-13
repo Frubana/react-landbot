@@ -8,7 +8,7 @@ export type Props = {
   color?: string;
   positionBottom?: string;
   positionRigth?: string;
-  children: JSX.Element;
+  children: JSX.Element[] | JSX.Element;
 };
 
 export const WrapperLandbot = (props: Props) => {
@@ -47,7 +47,6 @@ export const WrapperLandbot = (props: Props) => {
           }
           return React.cloneElement(child, {
             ...child.props,
-            boolDefault: false,
             callback: callback
           });
         })}
