@@ -12,6 +12,8 @@ import pkg from "./package.json";
 
 export default {
   input: "src/index.tsx",
+  external: ['styled-components'],
+  globals: { 'styled-components': 'styled' },
   output: [
     {
       file: pkg.main,

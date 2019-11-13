@@ -1,23 +1,7 @@
-/**
- * @class ExampleComponent
- */
-
-import * as React from 'react'
-
-import styles from './styles.css'
-
 export type Props = { text: string }
 
-export default class ExampleComponent extends React.Component<Props> {
-  render() {
-    const {
-      text
-    } = this.props
+export { ActionButtonLandbot } from './action-button-landbot';
+export { WrapperLandbot } from './wrapper-landbot';
+export { WrapperWhatsApp } from './wrapper-whatsapp';
+export {WrapperIframe} from './wrapper-iframe';
 
-    return (
-      <div className={styles.test}>
-        Example Component daniel: {text}
-      </div>
-    )
-  }
-}
