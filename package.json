@@ -1,6 +1,6 @@
 {
   "name": "@frubana/react-landbot",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "",
   "private": false,
   "author": "@frubana",
@@ -18,13 +18,12 @@
     "build": "rollup -c",
     "start": "rollup -c -w"
   },
-  "dependencies": {
-    "styled-components": "^4.4.1"
-  },
+  "dependencies": {},
   "peerDependencies": {
     "prop-types": "15.x",
     "react": "16.x",
-    "react-dom": "16.x"
+    "react-dom": "16.x",
+    "styled-components": "4.x"
   },
   "devDependencies": {
     "@babel/core": "^7.6.4",
@@ -57,7 +56,8 @@
     "rollup-plugin-postcss": "^2.0.3",
     "rollup-plugin-typescript2": "^0.25.2",
     "rollup-plugin-url": "^3.0.0",
-    "typescript": "3.7.2"
+    "typescript": "3.7.2",
+    "styled-components": "^4.4.1"
   },
   "files": [
     "dist"
