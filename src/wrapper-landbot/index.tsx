@@ -4,6 +4,7 @@ import { ButtonVisible } from "../context";
 
 export type Props = {
   image: string;
+  imageClose: string;
   size?: string;
   sizeImage?: string;
   color?: string;
@@ -36,7 +37,7 @@ export const WrapperLandbot = (props: Props) => {
           height={props.sizeImage || "31px"}
           src={
             buttonBool
-              ? "https://pngimage.net/wp-content/uploads/2018/05/close-png-image-1.png"
+              ? props.imageClose || "https://pngimage.net/wp-content/uploads/2018/05/close-png-image-1.png"
               : props.image
           }
         />

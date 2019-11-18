@@ -3,7 +3,7 @@
 >
 
 [![NPM](https://img.shields.io/npm/v/@frubana/react-landbot.svg)](https://www.npmjs.com/package/@frubana/react-landbot)
-[![Bundle](https://badgen.net/bundlephobia/min/@frubana/react-landbot)](https://bundlephobia.com/result?p=@frubana/react-landbot@0.0.5) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
+[![Bundle](https://badgen.net/bundlephobia/min/@frubana/react-landbot)](https://bundlephobia.com/result?p=@frubana/react-landbot@0.0.6) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
 ## Install
 
@@ -23,7 +23,7 @@ import { WrapperLandbot, WrapperIframe, WrapperWhatsApp } from "@frubana/react-l
 class Example extends React.Component {
   render () {
     return (
-      <WrapperLandbot image={`you-image`}>
+      <WrapperLandbot image={`you-image`} imageClose={'image-close'}>
       <WrapperIframe
         name="unique_name"
         positionRigth="7rem"
