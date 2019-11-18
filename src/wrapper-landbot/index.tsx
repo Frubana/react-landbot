@@ -33,6 +33,7 @@ export const WrapperLandbot = (props: Props) => {
         onClick={handleCallBack}
       >
         <img
+        className={buttonBool ? 'open-options' : 'close-options'}
           width={props.sizeImage || "31px"}
           height={props.sizeImage || "31px"}
           src={
