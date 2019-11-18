@@ -1,5 +1,6 @@
 import React, { useState, useCallback, Fragment } from "react";
 import { ButtonActionStyled } from "../action-button-landbot/styles";
+import { ButtonVisible } from "../context";
 
 export type Props = {
   image: string;
@@ -13,10 +14,15 @@ export type Props = {
 
 export const WrapperLandbot = (props: Props) => {
   const [buttonBool, setButtonBool] = useState(false);
+  const [buttonDisabled, setButtonDisabled] = useState({
+    key: '',
+    bool: false,
+  })
   const handleCallBack = useCallback(() => {
     setButtonBool(!buttonBool);
   }, [buttonBool]);
   return (
+    <ButtonVisible.Provider value={{data:buttonDisabled, setState: setButtonDisabled}}>
     <Fragment>
       <ButtonActionStyled
         positionBottom={props.positionBottom}
@@ -37,7 +43,6 @@ export const WrapperLandbot = (props: Props) => {
       </ButtonActionStyled>
       {buttonBool &&
         React.Children.map(props.children, child => {
-          console.log(child.props);
           let callback = handleCallBack;
           if (child.props.callback) {
             callback = () => {
@@ -51,5 +56,6 @@ export const WrapperLandbot = (props: Props) => {
           });
         })}
     </Fragment>
+    </ButtonVisible.Provider>
   );
 };
