@@ -13,6 +13,7 @@ export type Props = {
   positionBottom?: string;
   positionRigth?: string;
   callback?: Function;
+  className?: string;
 };
 
 export const ActionButtonLandbot = (props: Props) => {
@@ -45,6 +46,7 @@ export const ActionButtonLandbot = (props: Props) => {
           ) : (
             <img
               src={props.image}
+              className={props.className}
               width={props.sizeImage || "31px"}
               height={props.sizeImage || "31px"}
             />

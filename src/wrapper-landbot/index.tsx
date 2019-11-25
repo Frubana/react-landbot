@@ -1,4 +1,4 @@
-import React, { useState, useCallback, Fragment, useContext, useEffect } from "react";
+import React, { useState, useCallback, Fragment } from "react";
 import { ButtonVisible } from "../context";
 import { ActionButtonLandbot } from "../action-button-landbot";
 
@@ -21,20 +21,6 @@ export const WrapperLandbot = (props: Props) => {
     key: "",
     bool: false
   });
-  const context = useContext(ButtonVisible);
-
-  useEffect(()=>{
-    return () => {
-      setButtonDisabled({
-        key: "",
-        bool: false
-      })
-      context.setState({
-        key: "",
-        bool: false
-      })
-    }
-  }, [])
 
   const handleCallBack = useCallback(() => {
     setButtonBool(!buttonBool);
@@ -57,6 +43,7 @@ export const WrapperLandbot = (props: Props) => {
           textLabel={props.textLabel}
           callback={handleCallBack}
           sizeImage={props.sizeImage || "31px"}
+          className={buttonBool ? "open-options" : "close-options"}
         />
         {buttonBool &&
           React.Children.map(props.children, child => {
