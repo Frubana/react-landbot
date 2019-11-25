@@ -45,6 +45,55 @@ class Example extends React.Component {
 }
 ```
 
+## Props WrapperLandbot
+|                |TYPE                          |REQUIRED                         |
+|----------------|-------------------------------|-----------------------------|
+|image|`string`            |Required           |
+|imageClose          |`string`            |Required           |
+|children          |`JSX.Element | JSX.Element[]`            |Required           |
+|size          |`string`            |Optional           |
+|sizeImage          |`string`            |Optional           |
+|textColor          |`string`            |Optional           |
+|color          |`string`            |Optional           |
+|textLabel          |`string`            |Optional           |
+|positionBottom          |`string`            |Optional           |
+|positionRigth          |`string`            |Optional           |
+
+## Props WrapperIframe
+|                |TYPE                          |REQUIRED                         |
+|----------------|-------------------------------|-----------------------------|
+|image|`string`            |Required           |
+|iframe|`string`            |Required           |
+|name          |`string`            |Required and unique          |
+|header          |`JSX.Element`            |Optional           |
+|size          |`string`            |Optional           |
+|sizeImage          |`string`            |Optional           |
+|textColor          |`string`            |Optional           |
+|color          |`string`            |Optional           |
+|textLabel          |`string`            |Optional           |
+|positionBottom          |`string`            |Optional           |
+|positionRigth          |`string`            |Optional           |
+|width          |`string (iframe)`            |Optional           |
+|heigth          |`string (iframe)`            |Optional           |
+
+## Props WrapperWhatsApp
+|                |TYPE                          |REQUIRED                         |
+|----------------|-------------------------------|-----------------------------|
+|image|`string`            |Required           |
+|whatsapp|`string`            |Required           |
+|name          |`string`            |Required and unique          |
+|callback          |`Function`            |Optional           |
+|autoClose          |`boolean`            |Optional           |
+|size          |`string`            |Optional           |
+|sizeImage          |`string`            |Optional           |
+|textColor          |`string`            |Optional           |
+|color          |`string`            |Optional           |
+|textLabel          |`string`            |Optional           |
+|positionBottom          |`string`            |Optional           |
+|positionRigth          |`string`            |Optional           |
+
+
+
 ## License
 
 MIT © [](https://github.com/)

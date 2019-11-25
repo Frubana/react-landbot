@@ -5,10 +5,11 @@ import React, {
   useContext,
   useEffect
 } from "react";
-import { ButtonActionStyled } from "../action-button-landbot/styles";
 import { ButtonVisible } from "../context";
+import { ActionButtonLandbot } from "../action-button-landbot";
 
 export type Props = {
+  autoClose?: boolean;
   image: string;
   name: string;
   whatsapp: string;
@@ -19,8 +20,6 @@ export type Props = {
   textLabel?: string;
   color?: string;
   colorText?: string;
-  width?: string;
-  heigth?: string;
   callback?: Function;
 };
 
@@ -30,8 +29,13 @@ export const WrapperWhatsApp = (props: Props) => {
   const [disabled, setDisabled] = useState(false);
   const handleCallBack = useCallback(() => {
     setButtonBool(!buttonBool);
+    const tst = {
+      key: "",
+      bool: false
+    };
+    context.setState(tst);
+    if (props.autoClose && props.callback) props.callback();
     window.open(props.whatsapp, "_blank");
-    if (props.callback) props.callback();
   }, [buttonBool]);
 
   useEffect(() => {
@@ -54,25 +58,17 @@ export const WrapperWhatsApp = (props: Props) => {
   return (
     <Fragment>
       {!disabled && (
-        <ButtonActionStyled
+        <ActionButtonLandbot
           color={props.color || "blue"}
           positionBottom={props.positionBottom || "10rem"}
           positionRigth={props.positionRigth || "31px"}
-          onClick={handleCallBack}
+          image={props.image}
+          size={props.size}
           colorText={props.colorText}
           textLabel={props.textLabel}
-        >
-          {props.textLabel && (
-            <div className="label-help">
-              <span>{props.textLabel}</span>
-            </div>
-          )}
-          <img
-            src={props.image}
-            width={props.sizeImage || "31px"}
-            height={props.sizeImage || "31px"}
-          />
-        </ButtonActionStyled>
+          callback={handleCallBack}
+          sizeImage={props.sizeImage || "31px"}
+        />
       )}
     </Fragment>
   );

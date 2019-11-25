@@ -1,6 +1,6 @@
-import React, { useState, useCallback, Fragment } from "react";
-import { ButtonActionStyled } from "../action-button-landbot/styles";
+import React, { useState, useCallback, Fragment, useContext, useEffect } from "react";
 import { ButtonVisible } from "../context";
+import { ActionButtonLandbot } from "../action-button-landbot";
 
 export type Props = {
   image: string;
@@ -21,6 +21,21 @@ export const WrapperLandbot = (props: Props) => {
     key: "",
     bool: false
   });
+  const context = useContext(ButtonVisible);
+
+  useEffect(()=>{
+    return () => {
+      setButtonDisabled({
+        key: "",
+        bool: false
+      })
+      context.setState({
+        key: "",
+        bool: false
+      })
+    }
+  }, [])
+
   const handleCallBack = useCallback(() => {
     setButtonBool(!buttonBool);
   }, [buttonBool]);
@@ -29,7 +44,10 @@ export const WrapperLandbot = (props: Props) => {
       value={{ data: buttonDisabled, setState: setButtonDisabled }}
     >
       <Fragment>
-        <ButtonActionStyled
+        <ActionButtonLandbot
+          image={buttonBool ? props.imageClose ||
+            "https://pngimage.net/wp-content/uploads/2018/05/close-png-image-1.png"
+          : props.image}
           positionBottom={props.positionBottom}
           positionRigth={props.positionRigth}
           size={props.size}
@@ -37,25 +55,9 @@ export const WrapperLandbot = (props: Props) => {
           color={props.color}
           colorText={props.colorText}
           textLabel={props.textLabel}
-          onClick={handleCallBack}
-        >
-          {props.textLabel && (
-            <div className="label-help">
-              <span>{props.textLabel}</span>
-            </div>
-          )}
-          <img
-            className={buttonBool ? "open-options" : "close-options"}
-            width={props.sizeImage || "31px"}
-            height={props.sizeImage || "31px"}
-            src={
-              buttonBool
-                ? props.imageClose ||
-                  "https://pngimage.net/wp-content/uploads/2018/05/close-png-image-1.png"
-                : props.image
-            }
-          />
-        </ButtonActionStyled>
+          callback={handleCallBack}
+          sizeImage={props.sizeImage || "31px"}
+        />
         {buttonBool &&
           React.Children.map(props.children, child => {
             let callback = handleCallBack;

@@ -3,6 +3,7 @@ import { ButtonActionStyled } from "./styles";
 
 export type Props = {
   image: string;
+  disabledButton?: boolean;
   textLabel?: string;
   text?: string | JSX.Element;
   size?: string;
@@ -21,7 +22,6 @@ export const ActionButtonLandbot = (props: Props) => {
     setButtonBool(!buttonBool);
     if (props.callback) props.callback();
   }, [buttonBool]);
-  console.log(props);
   return (
     <Fragment>
       {
@@ -30,6 +30,7 @@ export const ActionButtonLandbot = (props: Props) => {
           color={props.color || "blue"}
           positionBottom={props.positionBottom}
           positionRigth={props.positionRigth}
+          disabledButton={props.disabledButton}
           onClick={handleCallBack}
           colorText={props.colorText}
           textLabel={props.textLabel}

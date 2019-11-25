@@ -6,8 +6,8 @@ import React, {
   useContext
 } from "react";
 import { WrapperIframeStyled, WrapperChildStyled } from "./styles";
-import { ButtonActionStyled } from "../action-button-landbot/styles";
 import { ButtonVisible } from "../context";
+import { ActionButtonLandbot } from "../action-button-landbot";
 
 export type Props = {
   image: string;
@@ -68,25 +68,17 @@ export const WrapperIframe = (props: Props) => {
       {!disabled && (
         <Fragment>
           {!buttonBool && (
-            <ButtonActionStyled
-              color={props.color || "red"}
+            <ActionButtonLandbot
+              image={props.image}
               positionBottom={props.positionBottom || "6rem"}
               positionRigth={props.positionRigth || "31px"}
-              onClick={handleCallBack}
+              size={props.size}
+              color={props.color || "red"}
               colorText={props.colorText}
               textLabel={props.textLabel}
-            >
-              {props.textLabel && (
-                <div className="label-help">
-                  <span>{props.textLabel}</span>
-                </div>
-              )}
-              <img
-                src={props.image}
-                width={props.sizeImage || "31px"}
-                height={props.sizeImage || "31px"}
-              />
-            </ButtonActionStyled>
+              callback={handleCallBack}
+              sizeImage={props.sizeImage || "31px"}
+            />
           )}
           {buttonBool && (
             <WrapperIframeStyled heigth={props.heigth} width={props.width}>
