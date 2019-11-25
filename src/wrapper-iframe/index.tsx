@@ -1,4 +1,10 @@
-import React, { useState, useCallback, Fragment, useEffect, useContext } from "react";
+import React, {
+  useState,
+  useCallback,
+  Fragment,
+  useEffect,
+  useContext
+} from "react";
 import { WrapperIframeStyled, WrapperChildStyled } from "./styles";
 import { ButtonActionStyled } from "../action-button-landbot/styles";
 import { ButtonVisible } from "../context";
@@ -9,7 +15,9 @@ export type Props = {
   iframe: string;
   size?: string;
   sizeImage?: string;
+  textLabel?: string;
   color?: string;
+  colorText?: string;
   width?: string;
   heigth?: string;
   positionBottom?: string;
@@ -26,10 +34,10 @@ export const WrapperIframe = (props: Props) => {
   const handleCallBack = useCallback(() => {
     setButtonBool(!buttonBool);
     const tst = {
-        key: props.name,
-        bool: true
-      }
-      context.setState(tst)
+      key: props.name,
+      bool: true
+    };
+    context.setState(tst);
     if (!loading) {
       setLoading(true);
     }
@@ -38,34 +46,41 @@ export const WrapperIframe = (props: Props) => {
     setLoading(false);
   }, [loading]);
 
-  useEffect(()=>{
-    const {data} = context;
-    if(data.key !== props.name){
-        if(data.bool){
-          setDisabled(true)
+  useEffect(() => {
+    const { data } = context;
+    if (data.key !== props.name) {
+      if (data.bool) {
+        setDisabled(true);
       }
     }
     return () => {
-      if(data.key === props.name) {
+      if (data.key === props.name) {
         context.setState({
-          key: '',
+          key: "",
           bool: false
-        })
-        setDisabled(false)
+        });
+        setDisabled(false);
       }
-    }
-  }, [context])
+    };
+  }, [context]);
   return (
     <Fragment>
-          { !disabled &&
-          <Fragment>
-            {!buttonBool && (
+      {!disabled && (
+        <Fragment>
+          {!buttonBool && (
             <ButtonActionStyled
               color={props.color || "red"}
               positionBottom={props.positionBottom || "6rem"}
               positionRigth={props.positionRigth || "31px"}
               onClick={handleCallBack}
+              colorText={props.colorText}
+              textLabel={props.textLabel}
             >
+              {props.textLabel && (
+                <div className="label-help">
+                  <span>{props.textLabel}</span>
+                </div>
+              )}
               <img
                 src={props.image}
                 width={props.sizeImage || "31px"}
@@ -102,8 +117,8 @@ export const WrapperIframe = (props: Props) => {
               />
             </WrapperIframeStyled>
           )}
-          </Fragment>
-      }
+        </Fragment>
+      )}
     </Fragment>
   );
 };
