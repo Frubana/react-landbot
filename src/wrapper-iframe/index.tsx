@@ -23,6 +23,7 @@ export type Props = {
   positionBottom?: string;
   positionRigth?: string;
   header?: JSX.Element;
+  callback?: Function;
 };
 
 export const WrapperIframe = (props: Props) => {
@@ -32,6 +33,7 @@ export const WrapperIframe = (props: Props) => {
   const [loading, setLoading] = useState(true);
 
   const handleCallBack = useCallback(() => {
+    if(props.callback) props.callback()
     setButtonBool(!buttonBool);
     const tst = {
       key: props.name,

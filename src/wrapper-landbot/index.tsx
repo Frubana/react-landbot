@@ -13,6 +13,7 @@ export type Props = {
   positionBottom?: string;
   positionRigth?: string;
   children: JSX.Element[] | JSX.Element;
+  callback?: Function;
 };
 
 export const WrapperLandbot = (props: Props) => {
@@ -23,6 +24,7 @@ export const WrapperLandbot = (props: Props) => {
   });
 
   const handleCallBack = useCallback(() => {
+    if(props.callback) props.callback();
     setButtonBool(!buttonBool);
   }, [buttonBool]);
   return (
