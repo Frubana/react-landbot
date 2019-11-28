@@ -33,7 +33,6 @@ export const WrapperIframe = (props: Props) => {
   const [loading, setLoading] = useState(true);
 
   const handleCallBack = useCallback(() => {
-    if(props.callback) props.callback()
     setButtonBool(!buttonBool);
     const tst = {
       key: props.name,
@@ -43,6 +42,7 @@ export const WrapperIframe = (props: Props) => {
     if (!loading) {
       setLoading(true);
     }
+    if(props.callback) props.callback()
   }, [buttonBool]);
   const handleLoading = useCallback(() => {
     setLoading(false);

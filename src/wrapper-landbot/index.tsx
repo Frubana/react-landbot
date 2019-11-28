@@ -24,8 +24,8 @@ export const WrapperLandbot = (props: Props) => {
   });
 
   const handleCallBack = useCallback(() => {
-    if(props.callback) props.callback();
     setButtonBool(!buttonBool);
+    if(props.callback && buttonBool) props.callback();
   }, [buttonBool]);
   return (
     <ButtonVisible.Provider
