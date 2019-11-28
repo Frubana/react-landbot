@@ -23,7 +23,7 @@ export type Props = {
   positionBottom?: string;
   positionRigth?: string;
   header?: JSX.Element;
-  callback?: Function;
+  callbackFunc?: Function;
 };
 
 export const WrapperIframe = (props: Props) => {
@@ -42,7 +42,7 @@ export const WrapperIframe = (props: Props) => {
     if (!loading) {
       setLoading(true);
     }
-    if(props.callback) props.callback()
+    if(props.callbackFunc) props.callbackFunc()
   }, [buttonBool]);
   const handleLoading = useCallback(() => {
     setLoading(false);
@@ -78,7 +78,9 @@ export const WrapperIframe = (props: Props) => {
               color={props.color || "red"}
               colorText={props.colorText}
               textLabel={props.textLabel}
-              callback={handleCallBack}
+              callback={()=>{
+                handleCallBack()
+              }}
               sizeImage={props.sizeImage || "31px"}
             />
           )}

@@ -21,6 +21,7 @@ export type Props = {
   color?: string;
   colorText?: string;
   callback?: Function;
+  callbackFunc?: Function;
 };
 
 export const WrapperWhatsApp = (props: Props) => {
@@ -34,6 +35,7 @@ export const WrapperWhatsApp = (props: Props) => {
       bool: false
     };
     context.setState(tst);
+    if (props.callbackFunc) props.callbackFunc();
     if (props.autoClose && props.callback) props.callback();
     window.open(props.whatsapp, "_blank");
   }, [buttonBool]);
