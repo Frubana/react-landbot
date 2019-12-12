@@ -11,6 +11,7 @@ interface Props {
 }
 
 export const ButtonActionStyled = styled.button<Props>`
+  z-index: 3;
   bottom: ${props => (props.positionBottom ? props.positionBottom : "31px")};
   right: ${props => (props.positionRigth ? props.positionRigth : "31px")};
   display: flex;

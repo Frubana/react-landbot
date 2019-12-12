@@ -9,7 +9,7 @@ export const WrapperIframeStyled = styled.div<PropsWrapperIframe>`
   display: flex;
   background-color: white;
   position: fixed;
-  z-index: 2;
+  z-index: 4;
   bottom: 5.2rem;
   height: ${props => props.heigth ? props.heigth : '400px'};
   width: ${props => props.width ? props.width : '280px'};
