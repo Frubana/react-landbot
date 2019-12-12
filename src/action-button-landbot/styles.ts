@@ -31,7 +31,7 @@ export const ButtonActionStyled = styled.button<Props>`
   }
   @media screen and (min-width: 768px) {
     &:hover {
-      z-index: 3;
+      z-index: 5;
       .label-help {
         opacity: 0.8;
         border-radius: 3px;
