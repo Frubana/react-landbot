@@ -4,6 +4,7 @@ import { ActionButtonLandbot } from "../action-button-landbot";
 
 export type Props = {
   image: string;
+  static?: boolean;
   imageClose: string;
   size?: string;
   sizeImage?: string;
@@ -41,6 +42,7 @@ export const WrapperLandbot = (props: Props) => {
           size={props.size}
           disabledButton={buttonBool}
           color={props.color}
+          static={props.static}
           colorText={props.colorText}
           textLabel={props.textLabel}
           callback={handleCallBack}

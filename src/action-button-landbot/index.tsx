@@ -13,6 +13,7 @@ export type Props = {
   positionBottom?: string;
   positionRigth?: string;
   callback?: Function;
+  static?: boolean;
   className?: string;
 };
 
@@ -34,6 +35,7 @@ export const ActionButtonLandbot = (props: Props) => {
           disabledButton={props.disabledButton}
           onClick={handleCallBack}
           colorText={props.colorText}
+          static={props.static}
           textLabel={props.textLabel}
         >
           {props.textLabel && (

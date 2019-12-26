@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 interface Props {
   color?: string;
+  static?: boolean;
   disabledButton?: boolean;
   colorText?: string;
   textLabel?: string;
@@ -29,26 +30,50 @@ export const ButtonActionStyled = styled.button<Props>`
   & > .label-help {
     display: none;
   }
-  @media screen and (min-width: 768px) {
-    &:hover {
-      z-index: 5;
+  ${props => {
+    if (props.static) {
+      return `
       .label-help {
         opacity: 0.8;
         border-radius: 3px;
         position: absolute;
-        background: ${props => (props.color ? props.color : "#296d9c")};
-        color: ${props => (props.colorText ? props.colorText : "#000000")};
+        background: ${props.color ? props.color : "#296d9c"};
+        color: ${props.colorText ? props.colorText : "#000000"};
         right: 94%;
         width: max-content;
-        display: ${props => (props.disabledButton ? "none" : "flex")};
+        display: ${props.disabledButton ? "none" : "flex"};
         justify-content: center;
         z-index: 10;
         padding: 0.1rem 0.4rem;
         align-items: center;
         bottom: 12px;
       }
+      `;
     }
-  }
+    return `
+    @media screen and (min-width: 768px) {
+      &:hover {
+        z-index: 5;
+        .label-help {
+          opacity: 0.8;
+          border-radius: 3px;
+          position: absolute;
+          background: ${props.color ? props.color : "#296d9c"};
+          color: ${props.colorText ? props.colorText : "#000000"};
+          right: 94%;
+          width: max-content;
+          display: ${props.disabledButton ? "none" : "flex"};
+          justify-content: center;
+          z-index: 10;
+          padding: 0.1rem 0.4rem;
+          align-items: center;
+          bottom: 12px;
+        }
+      }
+    }
+    `
+  }}
+
   &:focus {
     outline: none;
   }
